@@ -136,6 +136,16 @@ export default function SignUp(props) {
           >
             Sign up
           </Typography>
+                <h1 className="font-extrabold font-mono text-2xl red">
+            Works only if you run code locally.Below is the link to clone github
+            project
+          </h1>
+          <a
+            href="https://github.com/moonxstar-cloud/Authentication.git"
+            className="text-blue-600"
+          >
+            Run this Dashboard Locally
+          </a>
           <Box
             component="form"
             onSubmit={handleSubmit}
