@@ -9,7 +9,7 @@ dotenv.config();
 const app = express();
 
 // Middleware
-app.use(cors(()));
+app.use(cors());
 app.use(express.json());
 
 // Serve static files from the 'uploads' directory
