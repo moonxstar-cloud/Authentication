@@ -7,19 +7,22 @@ import {
 } from "react-router-dom";
 import SignIn from "./components/sign-in/SignIn";
 import SignUp from "./components/sign-in/Signup";
-import Dashboard from "./components/home/Profile";
+
 import { AuthProvider } from "./context/AuthContext";
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
-import Dashboad from "./components/Dashboad";
+import MyProfile from "./components/MyProfile";
+import MyDashboard from "./components/MyDashboard";
+import AppTheme from "./components/shared-theme/AppTheme";
+import ColorModeIconDropdown from "./components/shared-theme/ColorModeIconDropdown";
 
 function App() {
   return (
     <AuthProvider>
 
-      
-    
+  
+
+
       <Router>
         <Routes>
         
@@ -29,7 +32,9 @@ function App() {
 
           <Route path="/signup" element={<SignUp />} />
 
-          <Route path="/dashboard" element={<Dashboad />} />
+          <Route path="/profile" element={<MyProfile />} />
+
+          <Route path="/dashboard" element={< MyDashboard />} />
 
           <Route path="*" element={<Navigate to="/login" replace />} />
         </Routes>
@@ -45,6 +50,9 @@ function App() {
         draggable
         pauseOnHover
       />
+    
+    
+
     </AuthProvider>
   );
 }

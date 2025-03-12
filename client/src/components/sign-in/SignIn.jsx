@@ -118,7 +118,7 @@ export default function SignIn(props) {
     try {
       await login(formData.email, formData.password); // Use the login function from AuthContext
       toast.success('You have successfully logged in!');
-      navigate('/dashboard'); // Redirect to dashboard
+      navigate('/profile'); // Redirect to dashboard
     } catch (error) {
       console.error('Login failed:', error);
       if (error.response) {

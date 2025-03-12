@@ -29,7 +29,7 @@ import EmailRoundedIcon from '@mui/icons-material/EmailRounded';
 import ColorModeSelect from '../shared-theme/ColorModeSelect';
 import { useAuth } from '../../context/AuthContext';
 
-export default function MyProfile() {
+export default function Profile() {
   const { user, updateUserProfile } = useAuth(); // Use the auth context
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');

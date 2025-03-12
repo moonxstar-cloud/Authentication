@@ -346,14 +346,14 @@ import SupportRoundedIcon from '@mui/icons-material/SupportRounded';
 import SettingsRoundedIcon from '@mui/icons-material/SettingsRounded';
 import CloseRoundedIcon from '@mui/icons-material/CloseRounded';
 import LogoutRoundedIcon from '@mui/icons-material/LogoutRounded';
-import BrightnessAutoRoundedIcon from '@mui/icons-material/BrightnessAutoRounded';
-import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
+
 import { useState } from 'react';
 import ColorSchemeToggle from '../ColorSchemeToggle';
 import { closeSidebar } from '../utils/utils';
 import { useAuth } from '../../context/AuthContext';
 import { useNavigate } from 'react-router';
 import { useEffect } from 'react';
+import AppTheme from '../shared-theme/AppTheme';
 
 function Toggler({ renderToggle, children }) {
   const [open, setOpen] = React.useState();
@@ -399,7 +399,8 @@ export default function Sidebar() {
   };
 
   return (
-    <Sheet
+    <>
+          <Sheet
       className="Sidebar"
       sx={{
         position: { xs: 'fixed', md: 'sticky' },
@@ -499,19 +500,28 @@ export default function Sidebar() {
           }}
         >
           <ListItem>
-            <ListItemButton>
+            <ListItemButton onClick={() => navigate('/dashboard')}>
               <HomeRoundedIcon />
               <ListItemContent>
-                <Typography level="title-sm">Home</Typography>
+                <Typography level="title-sm" >Home</Typography>
               </ListItemContent>
             </ListItemButton>
           </ListItem>
 
           <ListItem>
             <ListItemButton>
-              <DashboardRoundedIcon />
+              <DashboardRoundedIcon onClick={() => navigate('/dashboard')}/>
               <ListItemContent>
                 <Typography level="title-sm">Dashboard</Typography>
+              </ListItemContent>
+            </ListItemButton>
+          </ListItem>
+
+          <ListItem>
+            <ListItemButton onClick={() => navigate('/profile')}>
+            <GroupRoundedIcon />
+              <ListItemContent>
+                <Typography level="title-sm">User Profile</Typography>
               </ListItemContent>
             </ListItemButton>
           </ListItem>
@@ -527,63 +537,11 @@ export default function Sidebar() {
                 <Typography level="title-sm">Orders</Typography>
               </ListItemContent>
             </ListItemButton>
+
+          
           </ListItem>
-          <ListItem nested>
-            <Toggler
-              renderToggle={({ open, setOpen }) => (
-                <ListItemButton onClick={() => setOpen(!open)}>
-                  <AssignmentRoundedIcon />
-                  <ListItemContent>
-                    <Typography level="title-sm">Tasks</Typography>
-                  </ListItemContent>
-                  <KeyboardArrowDownIcon
-                    sx={[
-                      open ? { transform: 'rotate(180deg)' } : { transform: 'none' },
-                    ]}
-                  />
-                </ListItemButton>
-              )}
-            >
-              <List sx={{ gap: 0.5 }}>
-                <ListItem sx={{ mt: 0.5 }}>
-                  <ListItemButton>All tasks</ListItemButton>
-                </ListItem>
-                <ListItem>
-                  <ListItemButton>Backlog</ListItemButton>
-                </ListItem>
-                <ListItem>
-                  <ListItemButton>In progress</ListItemButton>
-                </ListItem>
-                <ListItem>
-                  <ListItemButton>Done</ListItemButton>
-                </ListItem>
-              </List>
-            </Toggler>
-          </ListItem>
-          <ListItem nested>
-            <Toggler
-              defaultExpanded
-              renderToggle={({ open, setOpen }) => (
-                <ListItemButton onClick={() => setOpen(!open)}>
-                  <GroupRoundedIcon />
-                  <ListItemContent>
-                    <Typography level="title-sm">Users</Typography>
-                  </ListItemContent>
-                  <KeyboardArrowDownIcon
-                    sx={[
-                      open ? { transform: 'rotate(180deg)' } : { transform: 'none' },
-                    ]}
-                  />
-                </ListItemButton>
-              )}
-            >
-              <List sx={{ gap: 0.5 }}>
-                <ListItem sx={{ mt: 0.5 }}>
-                  <ListItemButton selected>My profile</ListItemButton>
-                </ListItem>
-              </List>
-            </Toggler>
-          </ListItem>
+          
+          
         </List>
         <List
           size="sm"
@@ -625,5 +583,7 @@ export default function Sidebar() {
         </IconButton>
       </Box>
     </Sheet>
+    </>
+
   );
 }

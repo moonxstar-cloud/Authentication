@@ -116,7 +116,7 @@ export default function SignUp(props) {
     try {
       await signup(name, email, password); // Use the signup function from AuthContext
       toast.success('You have successfully registered!'); // Success notification
-      navigate('/dashboard'); // Redirect to the sign-in page
+      navigate('/profile'); // Redirect to the sign-in page
     } catch (error) {
       console.error('Signup failed:', error);
       toast.error(error.response?.data?.error || 'Signup failed. Please try again.');

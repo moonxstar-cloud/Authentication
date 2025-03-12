@@ -4,13 +4,14 @@ import CssBaseline from '@mui/joy/CssBaseline';
 import Box from '@mui/joy/Box';
 import Sidebar from './home/sidebar';
 import Header from './Header';
-import MyProfile from './home/Profile';
+import Profile from './home/Profile';
 import { useAuth } from '../context/AuthContext';
 import Typography from '@mui/joy/Typography';
 import { useNavigate } from 'react-router-dom';
+import Dashboard from './dashboard/Dashboard';
 
 
-export default function Dashboard() {
+export default function MyDashboard() {
   const { user, loading, checkAuthStatus } = useAuth();
   const navigate = useNavigate();
 
@@ -58,7 +59,8 @@ export default function Dashboard() {
             overflow: 'auto',
           }}
         >
-          {user && <MyProfile />}
+         <Dashboard/>
+          
         </Box>
       </Box>
     </CssVarsProvider>
