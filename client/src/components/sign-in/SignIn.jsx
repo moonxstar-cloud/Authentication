@@ -148,6 +148,16 @@ export default function SignIn(props) {
           <Typography component="h1" variant="h4" sx={{ width: '100%', fontSize: 'clamp(2rem, 10vw, 2.15rem)' }}>
             Sign in
           </Typography>
+                <h1 className="font-extrabold font-mono text-lg red">
+            Works only if you run code locally.Below is the link to clone github
+            project
+          </h1>
+          <a
+            href="https://github.com/moonxstar-cloud/Authentication.git"
+            className="text-blue-600"
+          >
+            Run this Dashboard Locally
+          </a>
           <Box
             component="form"
             onSubmit={handleSubmit}
